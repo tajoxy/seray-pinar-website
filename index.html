@@ -37,14 +37,6 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QCVRGXWX40"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-QCVRGXWX40');
-</script>
 <style>
   :root{
     --ink:#131019;
@@ -218,6 +210,12 @@
   .card h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:500;font-style:italic;line-height:1.15}
   .card .composer{font-size:.83rem;color:var(--ivory-dim)}
   .card .dates{margin-top:auto;padding-top:1rem;font-size:.8rem;color:var(--ivory-dim);letter-spacing:.05em}
+  .card .details{
+    display:inline-flex;align-items:center;width:max-content;margin-top:.35rem;
+    color:var(--gold);text-decoration:none;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
+    border-bottom:1px solid rgba(201,161,90,.45);padding-bottom:.12rem;transition:border-color .25s,color .25s;
+  }
+  .card .details:hover,.card .details:focus-visible{color:var(--ivory);border-color:var(--ivory)}
 
   /* media */
   .videos{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.6rem}
@@ -342,7 +340,43 @@
   "sameAs": []
 }
 </script>
-<link href="/site.webmanifest" rel="manifest"/><link href="https://mezzoseraypinar.com/" hreflang="en" rel="alternate"/><link href="https://mezzoseraypinar.com/fr/" hreflang="fr" rel="alternate"/><link href="https://mezzoseraypinar.com/de/" hreflang="de" rel="alternate"/><link href="https://mezzoseraypinar.com/it/" hreflang="it" rel="alternate"/><link href="https://mezzoseraypinar.com/tr/" hreflang="tr" rel="alternate"/><link href="https://mezzoseraypinar.com/" hreflang="x-default" rel="alternate"/></head>
+<link href="/site.webmanifest" rel="manifest"/><link href="https://mezzoseraypinar.com/" hreflang="en" rel="alternate"/><link href="https://mezzoseraypinar.com/fr/" hreflang="fr" rel="alternate"/><link href="https://mezzoseraypinar.com/de/" hreflang="de" rel="alternate"/><link href="https://mezzoseraypinar.com/it/" hreflang="it" rel="alternate"/><link href="https://mezzoseraypinar.com/tr/" hreflang="tr" rel="alternate"/><link href="https://mezzoseraypinar.com/" hreflang="x-default" rel="alternate"/>
+<style id="sp-privacy-ui-styles">
+  .privacy-links{display:flex;flex-wrap:wrap;justify-content:center;gap:.55rem 1.1rem;margin-top:.85rem;letter-spacing:.08em;text-transform:none}
+  .privacy-links a,.privacy-links button{appearance:none;border:0;background:none;padding:0;color:var(--ivory-dim);font:inherit;font-size:.68rem;letter-spacing:.08em;text-decoration:none;cursor:pointer}
+  .privacy-links a:hover,.privacy-links button:hover,.privacy-links a:focus-visible,.privacy-links button:focus-visible{color:var(--gold)}
+  #sp-consent-banner{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:9999;max-width:960px;margin:auto;background:rgba(19,16,25,.985);border:1px solid rgba(201,161,90,.5);box-shadow:0 18px 60px rgba(0,0,0,.45);padding:1.15rem 1.2rem;display:none}
+  #sp-consent-banner.is-open{display:block}
+  .sp-consent-grid{display:grid;grid-template-columns:1fr auto;gap:1rem 1.25rem;align-items:center}
+  .sp-consent-copy h2{font-family:'Cormorant Garamond',Georgia,serif;color:var(--ivory);font-size:1.45rem;font-weight:500;line-height:1.15;margin:0 0 .35rem}
+  .sp-consent-copy p{font-size:.82rem;line-height:1.55;color:var(--ivory-dim);margin:0;max-width:680px}
+  .sp-consent-copy a{color:var(--gold)}
+  .sp-consent-actions{display:flex;gap:.55rem;flex-wrap:wrap;justify-content:flex-end}
+  .sp-privacy-btn{min-height:42px;border:1px solid var(--gold);background:transparent;color:var(--ivory);font-family:'Jost',Arial,sans-serif;font-size:.72rem;letter-spacing:.09em;padding:.65rem .9rem;cursor:pointer}
+  .sp-privacy-btn:hover,.sp-privacy-btn:focus-visible{background:var(--gold);color:var(--ink)}
+  .sp-privacy-btn.secondary{border-color:rgba(241,233,218,.4)}
+  .sp-privacy-linkbtn{border:0;background:none;color:var(--gold);padding:.5rem .25rem;cursor:pointer;font:inherit;font-size:.72rem;text-decoration:underline;text-underline-offset:3px}
+  #sp-consent-modal{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.68);display:none;align-items:center;justify-content:center;padding:1rem}
+  #sp-consent-modal.is-open{display:flex}
+  .sp-modal-card{width:min(620px,100%);max-height:90vh;overflow:auto;background:var(--ink-soft);border:1px solid rgba(201,161,90,.5);box-shadow:0 24px 80px rgba(0,0,0,.55);padding:1.35rem}
+  .sp-modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1rem}
+  .sp-modal-head h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:1.7rem;line-height:1.15}
+  .sp-modal-close{border:0;background:none;color:var(--ivory-dim);font-size:1.6rem;line-height:1;cursor:pointer;padding:.15rem}
+  .sp-pref{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:start;padding:1rem 0;border-top:1px solid rgba(201,161,90,.2)}
+  .sp-pref h3{font-size:.85rem;font-weight:500;letter-spacing:.05em;margin:0 0 .25rem}
+  .sp-pref p{font-size:.78rem;line-height:1.5;color:var(--ivory-dim);margin:0}
+  .sp-status{font-size:.7rem;color:var(--gold);white-space:nowrap}
+  .sp-switch{position:relative;width:46px;height:26px;display:inline-block}
+  .sp-switch input{opacity:0;width:0;height:0}
+  .sp-slider{position:absolute;inset:0;background:#5e5963;border-radius:999px;cursor:pointer;transition:.2s}
+  .sp-slider:before{content:"";position:absolute;width:20px;height:20px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s}
+  .sp-switch input:checked + .sp-slider{background:var(--gold)}
+  .sp-switch input:checked + .sp-slider:before{transform:translateX(20px)}
+  .sp-modal-actions{display:flex;justify-content:flex-end;gap:.55rem;margin-top:1rem}
+  @media (max-width:720px){.sp-consent-grid{grid-template-columns:1fr}.sp-consent-actions{justify-content:stretch}.sp-consent-actions .sp-privacy-btn{flex:1 1 140px}#sp-consent-banner{left:.65rem;right:.65rem;bottom:.65rem}.sp-modal-actions .sp-privacy-btn{flex:1}}
+</style>
+
+</head>
 <body>
 <header>
 <a class="monogram" href="#top">S·P</a>
@@ -424,6 +458,7 @@
 <section id="roles">
 <div class="sec-label reveal"><span data-i18n="sec_roles">On Stage — Performed Roles</span></div>
 <div class="playbill reveal">
+<div class="role-row"><div class="season">2026</div><div class="work">Roméo et Juliette<small>Charles Gounod</small></div><div class="as"><b>Stéphano</b><span data-i18n="v_waw_romeo">Teatr Wielki — Polish National Opera, Warsaw · October–November 2026 · 6 performances</span></div></div>
 <div class="role-row"><div class="season">2026</div><div class="work">La Traviata<small>Giuseppe Verdi</small></div><div class="as"><b>Flora Bervoix</b><span data-i18n="v_trav">Opéra national de Paris, Bastille · June–July 2026</span></div></div>
 <div class="role-row"><div class="season">2026</div><div class="work">Rusalka<small>Antonín Dvořák</small></div><div class="as"><b data-i18n="r_rusalka">The Kitchen Boy</b><span data-i18n="v_rus">Opéra national de Paris, Bastille · May 2026</span></div></div>
 <div class="role-row"><div class="season">2026</div><div class="work">Carmen<small>Georges Bizet</small></div><div class="as"><b>Mercédès</b><span data-i18n="v_car">Opéra national de Paris, Bastille · February–March 2026</span></div></div>
@@ -455,6 +490,13 @@
 <section id="upcoming">
 <div class="sec-label reveal"><span data-i18n="sec_up">Currently &amp; Upcoming</span></div>
 <div class="cards reveal">
+<div class="card">
+<span class="venue">Teatr Wielki — Polish National Opera · Warsaw</span>
+<h3>Roméo et Juliette</h3>
+<p class="composer" data-i18n="up_waw_romeo">Charles Gounod — Stéphano</p>
+<p class="dates" data-i18n="up_waw_romeo_d">2, 4, 11, 17 &amp; 24 October · 8 November 2026 — 6 performances</p>
+<a class="details" data-i18n="up_details" href="https://teatrwielki.pl/en/calendar/2026-2027/romeo-i-julia/" target="_blank" rel="noopener noreferrer">Production details</a>
+</div>
 <div class="card">
 <span class="venue">Opéra Bastille</span>
 <h3>La Traviata</h3>
@@ -491,7 +533,6 @@
 <li><b>Maddalena</b> · <i>Rigoletto</i></li>
 <li><b>Varvara</b> · <i>Káťa Kabanová</i></li>
 <li><b>Le Renard</b> · <i>La Petite Renarde Rusée</i></li>
-<li><b>Stéphano</b> · <i>Roméo et Juliette</i></li>
 <li><b>Dorabella</b> · <i>Così fan tutte</i></li>
 <li><b>Donna Elvira · Zerlina</b> · <i>Don Giovanni</i></li>
 <li><b>Sesto · Annio</b> · <i>La Clemenza di Tito</i></li>
@@ -576,6 +617,7 @@
 <footer>
 <span class="monogram serif">S·P</span>
 <span data-i18n="foot">© 2026 Seray Pınar — Mezzo-soprano</span>
+<div class="privacy-links"><a href="/legal.html">Legal notice</a><a href="/privacy.html">Privacy</a><a href="/cookies.html">Cookies</a><button type="button" data-cookie-settings>Cookie settings</button></div>
 </footer>
 <script>
 /* ---------- videos (click-to-play, light embeds) ---------- */
@@ -635,14 +677,14 @@ const fr = {
   hon_6:"Premier Prix — 11e Prix national des jeunes solistes, catégorie universitaire",
   sec_roles:"Sur scène — Rôles interprétés",
   r_rusalka:"Le garçon de cuisine", r_enfant:"L’Enfant", r_ren:"Le Renard",
-  v_trav:"Opéra national de Paris, Bastille · juin–juillet 2026", v_rus:"Opéra national de Paris, Bastille · mai 2026", v_car:"Opéra national de Paris, Bastille · février–mars 2026",
+  v_waw_romeo:"Teatr Wielki — Opéra national de Pologne, Varsovie · octobre–novembre 2026 · 6 représentations", v_trav:"Opéra national de Paris, Bastille · juin–juillet 2026", v_rus:"Opéra national de Paris, Bastille · mai 2026", v_car:"Opéra national de Paris, Bastille · février–mars 2026",
   v_noz:"Opéra national de Paris, Palais Garnier · décembre 2025", v_che:"Festival de Salzbourg · août 2025", v_bri:"Opéra national de Paris, Palais Garnier · juin–juillet 2025",
   v_rig:"Opéra national de Paris, Bastille · mai–juin 2025", v_ren:"Opéra national de Paris, Bastille · janvier–février 2025", v_may:"Opéra national de Paris, Palais Garnier · octobre–novembre 2024",
   v_gam:"Festival de Salzbourg · août 2024", v_str:"Académie de l’Opéra de Paris — MC93 Bobigny · avril 2024", v_enf:"Opéra national de Paris, Palais Garnier · novembre 2023",
   v_sca:"Athénée Théâtre Louis-Jouvet, Paris", v_via:"Rossini Opera Festival — Accademia, Pesaro", v_cav:"Opéra et Ballet d’État d’Ankara",
   sec_con:"En concert", cv_1:"Nürnberger Symphoniker · octobre 2025", cw_3:"Concert de gala de l’Académie, dir. Nil Venditti", cv_3:"Opéra national de Paris, Palais Garnier",
   cw_4:"Concerts protocolaires pour chefs de gouvernement en visite", cv_4:"Présidence de la République de Turquie", cw_5:"Festival Başkent Kültür Yolu",
-  sec_up:"Actuellement et prochainement", up_trav:"Giuseppe Verdi — Flora Bervoix", up_trav_d:"juin – juillet 2026", up_barb:"Gioachino Rossini — Rosina", up_barb_d:"Saison 2026/27",
+  sec_up:"Actuellement et prochainement", up_waw_romeo:"Charles Gounod — Stéphano", up_waw_romeo_d:"2, 4, 11, 17 &amp; 24 octobre · 8 novembre 2026 — 6 représentations", up_details:"Détails de la production", up_trav:"Giuseppe Verdi — Flora Bervoix", up_trav_d:"juin – juillet 2026", up_barb:"Gioachino Rossini — Rosina", up_barb_d:"Saison 2026/27",
   up_miroir:"Sœur Cécile &amp; Henriette", up_katia:"Leoš Janáček — Varvara", up_katia_d:"Saison 2026/27", up_romeo:"Charles Gounod — Stéphano", up_romeo_d:"Saison 2026/27",
   sec_prep:"Étudié et en préparation", sec_media:"Écouter &amp; regarder", sec_gallery:"Depuis la scène", g_1:"En concert", g_2:"Sur scène", g_3:"Sur scène", sec_press:"Presse",
   c_title:"Engagements &amp; demandes presse", c_agency:"Seray Pınar est représentée dans le monde entier par <b>TACT Artists Management</b>.", c_l1:"Profil agence", foot:"© 2026 Seray Pınar — Mezzo-soprano"
@@ -662,9 +704,9 @@ const de = {
   sec_hon:"Auszeichnungen", hon_1:"Dritter Preis — Neue Stimmen Internationaler Gesangswettbewerb, Gütersloh", hon_2:"Finalistin — 41. Internationaler Hans-Gabor-Belvedere-Gesangswettbewerb",
   hon_3:"Finalistin — Paris Opera Competition", hon_4:"Erster Preis — 14. Nationaler Nachwuchssolistenpreis, Kategorie Professional", hon_5:"Finalistin — 21. Siemens Opera Contest", hon_6:"Erster Preis — 11. Nationaler Nachwuchssolistenpreis, Universitätskategorie",
   sec_roles:"Auf der Bühne — gesungene Rollen", r_rusalka:"Der Küchenjunge", r_enfant:"Das Kind", r_ren:"Der Fuchs",
-  v_trav:"Opéra national de Paris, Bastille · Juni–Juli 2026", v_rus:"Opéra national de Paris, Bastille · Mai 2026", v_car:"Opéra national de Paris, Bastille · Februar–März 2026", v_noz:"Opéra national de Paris, Palais Garnier · Dezember 2025", v_che:"Salzburger Festspiele · August 2025", v_bri:"Opéra national de Paris, Palais Garnier · Juni–Juli 2025", v_rig:"Opéra national de Paris, Bastille · Mai–Juni 2025", v_ren:"Opéra national de Paris, Bastille · Januar–Februar 2025", v_may:"Opéra national de Paris, Palais Garnier · Oktober–November 2024", v_gam:"Salzburger Festspiele · August 2024", v_str:"Pariser Opernakademie — MC93 Bobigny · April 2024", v_enf:"Opéra national de Paris, Palais Garnier · November 2023", v_sca:"Athénée Théâtre Louis-Jouvet, Paris", v_via:"Rossini Opera Festival — Accademia, Pesaro", v_cav:"Staatsoper und Staatsballett Ankara",
+  v_waw_romeo:"Teatr Wielki — Polnische Nationaloper, Warschau · Oktober–November 2026 · 6 Vorstellungen", v_trav:"Opéra national de Paris, Bastille · Juni–Juli 2026", v_rus:"Opéra national de Paris, Bastille · Mai 2026", v_car:"Opéra national de Paris, Bastille · Februar–März 2026", v_noz:"Opéra national de Paris, Palais Garnier · Dezember 2025", v_che:"Salzburger Festspiele · August 2025", v_bri:"Opéra national de Paris, Palais Garnier · Juni–Juli 2025", v_rig:"Opéra national de Paris, Bastille · Mai–Juni 2025", v_ren:"Opéra national de Paris, Bastille · Januar–Februar 2025", v_may:"Opéra national de Paris, Palais Garnier · Oktober–November 2024", v_gam:"Salzburger Festspiele · August 2024", v_str:"Pariser Opernakademie — MC93 Bobigny · April 2024", v_enf:"Opéra national de Paris, Palais Garnier · November 2023", v_sca:"Athénée Théâtre Louis-Jouvet, Paris", v_via:"Rossini Opera Festival — Accademia, Pesaro", v_cav:"Staatsoper und Staatsballett Ankara",
   sec_con:"Konzertbühne", cv_1:"Nürnberger Symphoniker · Oktober 2025", cw_3:"Akademie-Galakonzert, Dir. Nil Venditti", cv_3:"Opéra national de Paris, Palais Garnier", cw_4:"Protokollkonzerte für besuchende Regierungschefs", cv_4:"Präsidentschaft der Republik Türkiye", cw_5:"Başkent Kültür Yolu Festival",
-  sec_up:"Aktuell &amp; demnächst", up_trav:"Giuseppe Verdi — Flora Bervoix", up_trav_d:"Juni – Juli 2026", up_barb:"Gioachino Rossini — Rosina", up_barb_d:"Saison 2026/27", up_miroir:"Sœur Cécile &amp; Henriette", up_katia:"Leoš Janáček — Varvara", up_katia_d:"Saison 2026/27", up_romeo:"Charles Gounod — Stéphano", up_romeo_d:"Saison 2026/27",
+  sec_up:"Aktuell &amp; demnächst", up_waw_romeo:"Charles Gounod — Stéphano", up_waw_romeo_d:"2., 4., 11., 17. &amp; 24. Oktober · 8. November 2026 — 6 Vorstellungen", up_details:"Produktionsdetails", up_trav:"Giuseppe Verdi — Flora Bervoix", up_trav_d:"Juni – Juli 2026", up_barb:"Gioachino Rossini — Rosina", up_barb_d:"Saison 2026/27", up_miroir:"Sœur Cécile &amp; Henriette", up_katia:"Leoš Janáček — Varvara", up_katia_d:"Saison 2026/27", up_romeo:"Charles Gounod — Stéphano", up_romeo_d:"Saison 2026/27",
   sec_prep:"Studiert &amp; in Vorbereitung", sec_media:"Hören &amp; Sehen", sec_gallery:"Von der Bühne", g_1:"Im Konzert", g_2:"Auf der Bühne", g_3:"Auf der Bühne", sec_press:"Presse", c_title:"Engagements &amp; Presseanfragen", c_agency:"Seray Pınar wird weltweit von <b>TACT Artists Management</b> vertreten.", c_l1:"Agenturprofil", foot:"© 2026 Seray Pınar — Mezzosopran"
 };
 
@@ -680,9 +722,9 @@ const it = {
   f_label:"Formazione", f_p1:"<b>Università Hacettepe — Conservatorio Statale di Ankara</b> (massimo dei voti) · <b>Accademia d’Arte Lirica</b>, Ancona · <b>Opéra national de Paris — Accademia</b>", f_p2:"Masterclass con <b>Renée Fleming</b>, <b>Juan Diego Flórez</b>, <b>Ernesto Palacio</b>, <b>Christof Loy</b> e <b>Stéphane Degout</b>; workshop con <b>Ralph Fiennes</b>.",
   sec_hon:"Riconoscimenti", hon_1:"Terzo Premio — Neue Stimmen International Singing Competition, Gütersloh", hon_2:"Finalista — 41° Concorso Internazionale Hans Gabor Belvedere", hon_3:"Finalista — Paris Opera Competition", hon_4:"Primo Premio — 14° Premio Nazionale Giovani Solisti, categoria professionale", hon_5:"Finalista — 21° Siemens Opera Contest", hon_6:"Primo Premio — 11° Premio Nazionale Giovani Solisti, categoria universitaria",
   sec_roles:"In scena — ruoli interpretati", r_rusalka:"Il garzone di cucina", r_enfant:"Il bambino", r_ren:"La volpe",
-  v_trav:"Opéra national de Paris, Bastille · giugno–luglio 2026", v_rus:"Opéra national de Paris, Bastille · maggio 2026", v_car:"Opéra national de Paris, Bastille · febbraio–marzo 2026", v_noz:"Opéra national de Paris, Palais Garnier · dicembre 2025", v_che:"Festival di Salisburgo · agosto 2025", v_bri:"Opéra national de Paris, Palais Garnier · giugno–luglio 2025", v_rig:"Opéra national de Paris, Bastille · maggio–giugno 2025", v_ren:"Opéra national de Paris, Bastille · gennaio–febbraio 2025", v_may:"Opéra national de Paris, Palais Garnier · ottobre–novembre 2024", v_gam:"Festival di Salisburgo · agosto 2024", v_str:"Accademia dell’Opéra di Parigi — MC93 Bobigny · aprile 2024", v_enf:"Opéra national de Paris, Palais Garnier · novembre 2023", v_sca:"Athénée Théâtre Louis-Jouvet, Parigi", v_via:"Rossini Opera Festival — Accademia, Pesaro", v_cav:"Opera e Balletto di Stato di Ankara",
+  v_waw_romeo:"Teatr Wielki — Opera Nazionale Polacca, Varsavia · ottobre–novembre 2026 · 6 recite", v_trav:"Opéra national de Paris, Bastille · giugno–luglio 2026", v_rus:"Opéra national de Paris, Bastille · maggio 2026", v_car:"Opéra national de Paris, Bastille · febbraio–marzo 2026", v_noz:"Opéra national de Paris, Palais Garnier · dicembre 2025", v_che:"Festival di Salisburgo · agosto 2025", v_bri:"Opéra national de Paris, Palais Garnier · giugno–luglio 2025", v_rig:"Opéra national de Paris, Bastille · maggio–giugno 2025", v_ren:"Opéra national de Paris, Bastille · gennaio–febbraio 2025", v_may:"Opéra national de Paris, Palais Garnier · ottobre–novembre 2024", v_gam:"Festival di Salisburgo · agosto 2024", v_str:"Accademia dell’Opéra di Parigi — MC93 Bobigny · aprile 2024", v_enf:"Opéra national de Paris, Palais Garnier · novembre 2023", v_sca:"Athénée Théâtre Louis-Jouvet, Parigi", v_via:"Rossini Opera Festival — Accademia, Pesaro", v_cav:"Opera e Balletto di Stato di Ankara",
   sec_con:"In concerto", cv_1:"Nürnberger Symphoniker · ottobre 2025", cw_3:"Concerto di gala dell’Accademia, dir. Nil Venditti", cv_3:"Opéra national de Paris, Palais Garnier", cw_4:"Concerti protocollari per capi di governo in visita", cv_4:"Presidenza della Repubblica di Turchia", cw_5:"Başkent Kültür Yolu Festival",
-  sec_up:"Attualmente &amp; prossimamente", up_trav:"Giuseppe Verdi — Flora Bervoix", up_trav_d:"giugno – luglio 2026", up_barb:"Gioachino Rossini — Rosina", up_barb_d:"Stagione 2026/27", up_miroir:"Sœur Cécile &amp; Henriette", up_katia:"Leoš Janáček — Varvara", up_katia_d:"Stagione 2026/27", up_romeo:"Charles Gounod — Stéphano", up_romeo_d:"Stagione 2026/27",
+  sec_up:"Attualmente &amp; prossimamente", up_waw_romeo:"Charles Gounod — Stéphano", up_waw_romeo_d:"2, 4, 11, 17 &amp; 24 ottobre · 8 novembre 2026 — 6 recite", up_details:"Dettagli della produzione", up_trav:"Giuseppe Verdi — Flora Bervoix", up_trav_d:"giugno – luglio 2026", up_barb:"Gioachino Rossini — Rosina", up_barb_d:"Stagione 2026/27", up_miroir:"Sœur Cécile &amp; Henriette", up_katia:"Leoš Janáček — Varvara", up_katia_d:"Stagione 2026/27", up_romeo:"Charles Gounod — Stéphano", up_romeo_d:"Stagione 2026/27",
   sec_prep:"Studiato &amp; in preparazione", sec_media:"Ascolta &amp; guarda", sec_gallery:"Dalla scena", g_1:"In concerto", g_2:"In scena", g_3:"In scena", sec_press:"Stampa", c_title:"Ingaggi &amp; richieste stampa", c_agency:"Seray Pınar è rappresentata in tutto il mondo da <b>TACT Artists Management</b>.", c_l1:"Profilo agenzia", foot:"© 2026 Seray Pınar — Mezzosoprano"
 };
 
@@ -708,14 +750,14 @@ const tr = {
   hon_6:"Birincilik — 11. Ulusal Genç Solistler Yarışması, Üniversite Kategorisi",
   sec_roles:"Sahnede — Seslendirdiği Roller",
   r_rusalka:"Mutfak çırağı", r_enfant:"Çocuk", r_ren:"Tilki",
-  v_trav:"Opéra national de Paris, Bastille · Haziran–Temmuz 2026", v_rus:"Opéra national de Paris, Bastille · Mayıs 2026", v_car:"Opéra national de Paris, Bastille · Şubat–Mart 2026",
+  v_waw_romeo:"Teatr Wielki — Polonya Ulusal Operası, Varşova · Ekim–Kasım 2026 · 6 temsil", v_trav:"Opéra national de Paris, Bastille · Haziran–Temmuz 2026", v_rus:"Opéra national de Paris, Bastille · Mayıs 2026", v_car:"Opéra national de Paris, Bastille · Şubat–Mart 2026",
   v_noz:"Opéra national de Paris, Palais Garnier · Aralık 2025", v_che:"Salzburg Festivali · Ağustos 2025", v_bri:"Opéra national de Paris, Palais Garnier · Haziran–Temmuz 2025",
   v_rig:"Opéra national de Paris, Bastille · Mayıs–Haziran 2025", v_ren:"Opéra national de Paris, Bastille · Ocak–Şubat 2025", v_may:"Opéra national de Paris, Palais Garnier · Ekim–Kasım 2024",
   v_gam:"Salzburg Festivali · Ağustos 2024", v_str:"Paris Opera Akademisi — MC93 Bobigny · Nisan 2024", v_enf:"Opéra national de Paris, Palais Garnier · Kasım 2023",
   v_sca:"Athénée Théâtre Louis-Jouvet, Paris", v_via:"Rossini Opera Festival — Accademia, Pesaro", v_cav:"Ankara Devlet Opera ve Balesi",
   sec_con:"Konser", cv_1:"Nürnberger Symphoniker · Ekim 2025", cw_3:"Akademi gala konseri, şef Nil Venditti", cv_3:"Opéra national de Paris, Palais Garnier",
   cw_4:"Devlet başkanları ve hükümet temsilcileri için protokol konserleri", cv_4:"Türkiye Cumhuriyeti Cumhurbaşkanlığı", cw_5:"Başkent Kültür Yolu Festivali",
-  sec_up:"Güncel ve Yaklaşan", up_trav:"Giuseppe Verdi — Flora Bervoix", up_trav_d:"Haziran – Temmuz 2026", up_barb:"Gioachino Rossini — Rosina", up_barb_d:"2026/27 sezonu",
+  sec_up:"Güncel ve Yaklaşan", up_waw_romeo:"Charles Gounod — Stéphano", up_waw_romeo_d:"2, 4, 11, 17 &amp; 24 Ekim · 8 Kasım 2026 — 6 temsil", up_details:"Prodüksiyon detayları", up_trav:"Giuseppe Verdi — Flora Bervoix", up_trav_d:"Haziran – Temmuz 2026", up_barb:"Gioachino Rossini — Rosina", up_barb_d:"2026/27 sezonu",
   up_miroir:"Sœur Cécile &amp; Henriette", up_katia:"Leoš Janáček — Varvara", up_katia_d:"2026/27 sezonu", up_romeo:"Charles Gounod — Stéphano", up_romeo_d:"2026/27 sezonu",
   sec_prep:"Çalışılan ve Hazırlanan Roller", sec_media:"Dinle &amp; İzle", sec_gallery:"Sahneden", g_1:"Konserde", g_2:"Sahnede", g_3:"Sahnede", sec_press:"Basın",
   c_title:"Angajman ve Basın Talepleri", c_agency:"Seray Pınar dünya çapında <b>TACT Artists Management</b> tarafından temsil edilmektedir.", c_l1:"Ajans Profili", foot:"© 2026 Seray Pınar — Mezzo-soprano"
@@ -751,5 +793,81 @@ const io = new IntersectionObserver(entries=>{
 },{threshold:.12});
 document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
 </script>
+
+<script id="sp-consent-manager">
+(function(){
+  const KEY='sp_privacy_consent_v1';
+  const MAX_AGE=180*24*60*60*1000;
+  const GA_ID='G-QCVRGXWX40';
+  const strings={
+    en:{title:'Your privacy choices',body:'We use essential storage to remember your choice. With your consent, Google Analytics helps us understand how this site is used. Analytics stays off until you accept.',accept:'Accept analytics',reject:'Reject analytics',settings:'Settings',more:'Cookie policy',modal:'Cookie settings',essential:'Essential storage',always:'Always active',essentialText:'Required to remember your privacy choice and operate the site. It is not used for advertising.',analytics:'Audience analytics',analyticsText:'Google Analytics (GA4) measures visits and interactions. It loads only if you enable it.',save:'Save choices',close:'Close'},
+    fr:{title:'Vos choix de confidentialité',body:'Nous utilisons un stockage essentiel pour mémoriser votre choix. Avec votre accord, Google Analytics nous aide à comprendre l’utilisation du site. Les statistiques restent désactivées tant que vous ne les acceptez pas.',accept:'Accepter les statistiques',reject:'Refuser les statistiques',settings:'Paramétrer',more:'Politique cookies',modal:'Gestion des cookies',essential:'Stockage essentiel',always:'Toujours actif',essentialText:'Nécessaire pour mémoriser votre choix de confidentialité et faire fonctionner le site. Il n’est pas utilisé à des fins publicitaires.',analytics:'Mesure d’audience',analyticsText:'Google Analytics (GA4) mesure les visites et interactions. Il ne se charge que si vous l’activez.',save:'Enregistrer mes choix',close:'Fermer'},
+    de:{title:'Ihre Datenschutzeinstellungen',body:'Wir verwenden notwendigen Speicher, um Ihre Auswahl zu merken. Mit Ihrer Einwilligung hilft uns Google Analytics zu verstehen, wie die Website genutzt wird. Analytics bleibt deaktiviert, bis Sie zustimmen.',accept:'Analytics akzeptieren',reject:'Analytics ablehnen',settings:'Einstellungen',more:'Cookie-Richtlinie',modal:'Cookie-Einstellungen',essential:'Notwendiger Speicher',always:'Immer aktiv',essentialText:'Erforderlich, um Ihre Datenschutzauswahl zu speichern und die Website zu betreiben. Nicht für Werbung verwendet.',analytics:'Reichweitenmessung',analyticsText:'Google Analytics (GA4) misst Besuche und Interaktionen. Es wird nur geladen, wenn Sie es aktivieren.',save:'Auswahl speichern',close:'Schließen'},
+    it:{title:'Le tue scelte sulla privacy',body:'Utilizziamo una memoria essenziale per ricordare la tua scelta. Con il tuo consenso, Google Analytics ci aiuta a capire come viene usato il sito. Analytics resta disattivato finché non lo accetti.',accept:'Accetta analytics',reject:'Rifiuta analytics',settings:'Impostazioni',more:'Cookie Policy',modal:'Impostazioni cookie',essential:'Memoria essenziale',always:'Sempre attiva',essentialText:'Necessaria per ricordare la scelta sulla privacy e per il funzionamento del sito. Non viene usata per pubblicità.',analytics:'Analisi del pubblico',analyticsText:'Google Analytics (GA4) misura visite e interazioni. Viene caricato solo se lo abiliti.',save:'Salva le scelte',close:'Chiudi'},
+    tr:{title:'Gizlilik tercihleriniz',body:'Tercihinizi hatırlamak için zorunlu depolama kullanıyoruz. Onay verirseniz Google Analytics sitenin nasıl kullanıldığını anlamamıza yardımcı olur. Siz kabul edene kadar Analytics kapalı kalır.',accept:'Analitiği kabul et',reject:'Analitiği reddet',settings:'Ayarlar',more:'Çerez politikası',modal:'Çerez ayarları',essential:'Zorunlu depolama',always:'Her zaman aktif',essentialText:'Gizlilik tercihinizi hatırlamak ve siteyi çalıştırmak için gereklidir. Reklam amacıyla kullanılmaz.',analytics:'Ziyaretçi analitiği',analyticsText:'Google Analytics (GA4) ziyaretleri ve etkileşimleri ölçer. Yalnızca siz etkinleştirirseniz yüklenir.',save:'Tercihleri kaydet',close:'Kapat'}
+  };
+  const policy={en:'/cookies.html',fr:'/fr/cookies.html',de:'/de/cookies.html',it:'/it/cookies.html',tr:'/tr/cookies.html'};
+  const lang=(document.documentElement.lang||'en').toLowerCase().split('-')[0];
+  const t=strings[lang]||strings.en;
+  let memoryChoice=null;
+  function readChoice(){
+    try{
+      const raw=localStorage.getItem(KEY); if(!raw) return null;
+      const v=JSON.parse(raw); if(!v || typeof v.analytics!=='boolean' || !v.ts || Date.now()-v.ts>MAX_AGE){localStorage.removeItem(KEY);return null;} return v;
+    }catch(e){return memoryChoice;}
+  }
+  function writeChoice(analytics){
+    const value={analytics:!!analytics,ts:Date.now(),version:1}; memoryChoice=value;
+    try{localStorage.setItem(KEY,JSON.stringify(value));}catch(e){}
+    return value;
+  }
+  function loadAnalytics(){
+    if(window.__spAnalyticsLoaded) return;
+    window['ga-disable-'+GA_ID]=false;
+    window.dataLayer=window.dataLayer||[];
+    window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};
+    gtag('js',new Date());
+    gtag('config',GA_ID,{cookie_expires:34128000,cookie_update:false,anonymize_ip:true});
+    const s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(GA_ID); s.id='sp-ga-script';
+    document.head.appendChild(s); window.__spAnalyticsLoaded=true;
+  }
+  function clearAnalyticsCookies(){
+    window['ga-disable-'+GA_ID]=true;
+    try{ if(window.gtag) gtag('consent','update',{analytics_storage:'denied'}); }catch(e){}
+    const names=document.cookie.split(';').map(x=>x.split('=')[0].trim()).filter(n=>n==='_ga'||n.indexOf('_ga_')===0);
+    names.forEach(n=>{
+      document.cookie=n+'=; Max-Age=0; path=/; SameSite=Lax';
+      document.cookie=n+'=; Max-Age=0; path=/; domain=.mezzoseraypinar.com; SameSite=Lax';
+      document.cookie=n+'=; Max-Age=0; path=/; domain=mezzoseraypinar.com; SameSite=Lax';
+    });
+  }
+  function apply(choice){ if(choice && choice.analytics) loadAnalytics(); else clearAnalyticsCookies(); }
+  const initial=readChoice(); if(initial) apply(initial);
+  function buildUI(){
+    const banner=document.createElement('aside'); banner.id='sp-consent-banner'; banner.setAttribute('role','dialog'); banner.setAttribute('aria-label',t.title);
+    banner.innerHTML='<div class="sp-consent-grid"><div class="sp-consent-copy"><h2>'+t.title+'</h2><p>'+t.body+' <a href="'+(policy[lang]||policy.en)+'">'+t.more+'</a>.</p></div><div class="sp-consent-actions"><button class="sp-privacy-btn" type="button" data-sp-accept>'+t.accept+'</button><button class="sp-privacy-btn" type="button" data-sp-reject>'+t.reject+'</button><button class="sp-privacy-linkbtn" type="button" data-sp-settings>'+t.settings+'</button></div></div>';
+    document.body.appendChild(banner);
+    const modal=document.createElement('div'); modal.id='sp-consent-modal'; modal.setAttribute('aria-hidden','true');
+    modal.innerHTML='<div class="sp-modal-card" role="dialog" aria-modal="true" aria-labelledby="sp-modal-title"><div class="sp-modal-head"><h2 id="sp-modal-title">'+t.modal+'</h2><button class="sp-modal-close" type="button" aria-label="'+t.close+'">×</button></div><div class="sp-pref"><div><h3>'+t.essential+'</h3><p>'+t.essentialText+'</p></div><div class="sp-status">'+t.always+'</div></div><div class="sp-pref"><div><h3>'+t.analytics+'</h3><p>'+t.analyticsText+'</p></div><label class="sp-switch"><input id="sp-analytics-toggle" type="checkbox"><span class="sp-slider"></span></label></div><div class="sp-modal-actions"><button class="sp-privacy-btn" type="button" data-sp-save>'+t.save+'</button></div></div>';
+    document.body.appendChild(modal);
+    const toggle=modal.querySelector('#sp-analytics-toggle');
+    function hideBanner(){banner.classList.remove('is-open')}
+    function openSettings(){const c=readChoice();toggle.checked=!!(c&&c.analytics);modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');setTimeout(()=>toggle.focus(),0)}
+    function closeSettings(){modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true')}
+    banner.querySelector('[data-sp-accept]').addEventListener('click',()=>{const c=writeChoice(true);apply(c);hideBanner()});
+    banner.querySelector('[data-sp-reject]').addEventListener('click',()=>{const c=writeChoice(false);apply(c);hideBanner()});
+    banner.querySelector('[data-sp-settings]').addEventListener('click',openSettings);
+    modal.querySelector('[data-sp-save]').addEventListener('click',()=>{const c=writeChoice(toggle.checked);apply(c);closeSettings();hideBanner()});
+    modal.querySelector('.sp-modal-close').addEventListener('click',closeSettings);
+    modal.addEventListener('click',e=>{if(e.target===modal)closeSettings()});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('is-open'))closeSettings()});
+    document.querySelectorAll('[data-cookie-settings]').forEach(btn=>btn.addEventListener('click',openSettings));
+    if(!readChoice()) banner.classList.add('is-open');
+    window.SPPrivacy={open:openSettings,choice:readChoice};
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',buildUI); else buildUI();
+})();
+</script>
+
 </body>
 </html>
