@@ -1,0 +1,12 @@
+Legal / privacy implementation references checked 04 Oct 2026:
+
+- CNIL — Cookies et traceurs : comment mettre mon site web en conformité ?
+  Key points used: accept/reject with the same degree of simplicity; remember the choice; six months is generally appropriate; consent can be withdrawn at any time.
+
+- Ministère de l'Économie (France) — Mentions sur votre site internet : les obligations à respecter
+  Key points used for an entrepreneur individuel: identity; postal address; email; telephone; hosting provider name/company/address/telephone; IP notices where relevant.
+
+- Cloudflare — Privacy Policy / contact information
+  Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA; +1 (650) 319-8930.
+
+This package is a practical compliance implementation, not a substitute for individualized legal advice.
