@@ -160,14 +160,15 @@
   .sec-label::after{content:"";height:1px;flex:1;background:rgba(201,161,90,.25)}
 
   /* biography */
-  .bio-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
+  .bio-grid{display:grid;grid-template-columns:1fr 1fr;gap:4.25rem;align-items:start}
   .bio-lead{
-    font-family:'Cormorant Garamond',serif;font-size:1.55rem;line-height:1.45;
-    font-weight:400;font-style:italic;color:var(--ivory);margin-bottom:2rem;
+    font-family:'Cormorant Garamond',serif;font-size:1.55rem;line-height:1.5;
+    font-weight:400;font-style:italic;color:var(--ivory);margin-bottom:2.15rem;
   }
   .bio-photo{border:var(--hair);padding:.6rem;background:var(--ink-soft)}
   .bio-photo img{filter:grayscale(1);width:100%}
-  .bio-text p{color:var(--ivory-dim);margin-bottom:1.2rem;font-size:.97rem}
+  .bio-text{max-width:29.5rem}
+  .bio-text p{color:var(--ivory-dim);margin-bottom:1.5rem;font-size:.97rem;line-height:1.82;text-wrap:pretty}
   .bio-text strong{color:var(--ivory);font-weight:400}
   .bio-text em{color:var(--ivory)}
   .formation{
